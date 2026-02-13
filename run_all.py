@@ -7,13 +7,17 @@ import os
 import subprocess
 import sys
 
+# Tiempo máximo de ejecución para cada script (en segundos)
+TIMEOUT_SECONDS = 30
+
 def main():
     # Directorio actual
     current_dir = os.path.dirname(os.path.abspath(__file__))
+    script_name = os.path.basename(__file__)
     
     # Buscar todos los archivos .py excepto este script
     python_files = [f for f in os.listdir(current_dir) 
-                   if f.endswith('.py') and f != 'run_all.py']
+                   if f.endswith('.py') and f != script_name]
     
     if not python_files:
         print("No se encontraron archivos Python para ejecutar.")
@@ -33,7 +37,7 @@ def main():
             result = subprocess.run([sys.executable, file_path], 
                                   capture_output=True, 
                                   text=True,
-                                  timeout=30)
+                                  timeout=TIMEOUT_SECONDS)
             
             if result.stdout:
                 print(result.stdout)
