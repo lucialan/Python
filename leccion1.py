@@ -7,8 +7,11 @@ estudiante = True      # Un valor de verdad (Boolean)
 print(f"Hola, mi nombre es {nombre} y tengo {edad} años. ❤️")
 
 precio_original = 100
-descuento_porcentaje = 0.10  # Esto representa un 10%
-cantidad_descontada = precio_original * descuento_porcentaje
-precio_final = precio_original - cantidad_descontada
+descuento = precio_original * 0.10
+precio_final = precio_original - descuento
 
-print(f"El precio final del curso es: {precio_final} euros. ❤️")
+# La magia para escribir en el README.md
+mensaje = f"# Resultado del Curso\n\nEl precio final calculado es: **{precio_final} euros**. ❤️"
+
+with open("README.md", "w") as archivo:
+    archivo.write(mensaje)
