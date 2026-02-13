@@ -1,0 +1,9 @@
+# Version outputs (keep the directory structure but not individual run outputs if desired)
+# Uncomment the next line if you don't want to track version outputs in git:
+# versions/*.txt
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
